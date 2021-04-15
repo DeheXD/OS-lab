@@ -15,20 +15,20 @@ def SJF(J,JS):
                 J[i] = temp
     #print(J,JS)
     print('Job\tJob Size\tWaiting Time\tTurnaround time')
-    wt=0
-    tt=0
-    twt=0
-    ttt=0
+    WaitingTime=0
+    TurnaroundTime=0
+    TotalWaitingTime=0
+    TotalTurnaroundTime=0
     for i in range (0,len(J)):
-        tt+=JS[i]
-        print(J[i],'\t',JS[i],'\t\t',wt,'\t\t',tt)
-        twt+=wt
-        ttt+=tt
+        TurnaroundTime+=JS[i]
+        print(J[i],'\t',JS[i],'\t\t',WaitingTime,'\t\t',TurnaroundTime)
+        TotalWaitingTime+=WaitingTime
+        TotalTurnaroundTime+=TurnaroundTime
         if i == len(J)-1:
             break
-        wt+=JS[i]
-    print(wt,tt)
-    print('Avg waiting time = ',twt/len(J))
-    print('Avg turnaround time = ',ttt/len(J))
+        WaitingTime+=JS[i]
+    print(WaitingTime,TurnaroundTime)
+    print('Avg waiting time = ',TotalWaitingTime/len(J))
+    print('Avg turnaround time = ',TotalTurnaroundTime/len(J))
 
 SJF(job, jobSize)
